@@ -1,0 +1,41 @@
+.align-center { align-items: center; }
+
+.field-grid,
+.science-grid,
+.tools-row,
+.actions-row {
+  row-gap: 1.25rem;
+}
+
+.hero__visual .blob,
+.compare__side,
+.tool-card,
+.task-card,
+.log-card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.tool-card:hover,
+.task-card:hover,
+.log-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 800px) {
+  .nav-links a { font-size: 0.95rem; }
+  .hero__visual { min-height: 260px; }
+}
+
+@media print {
+  body { background: #fff; color: #111; }
+  .site__nav, .nav-actions, .cta-row, .hero__visual, #confetti-container, .modal { display: none !important; }
+  .site__section { box-shadow: none; border: 1px solid #ddd; }
+}
