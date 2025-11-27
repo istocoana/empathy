@@ -216,7 +216,7 @@ body[data-theme="dark"] .site__nav {
 }
 
 .primary-btn {
-  background: linear-gradient(to bottom, var(--comp), #6447ff);
+  background: linear-gradient(to bottom, #6a4dff, #5430e0);
   color: #fff;
   box-shadow: var(--shadow-sm);
 }
