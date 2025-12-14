@@ -34,6 +34,9 @@
   const dom = {
     themeToggles: document.querySelectorAll('.theme-toggle'),
     motionToggle: document.getElementById('motionToggle') || document.getElementById('reduced-motion-toggle'),
+    navToggle: document.getElementById('nav-toggle'),
+    navLinks: document.getElementById('site-menu'),
+    navOverlay: document.getElementById('nav-overlay'),
     sliderFeel: document.getElementById('slider-feel'),
     sliderBoundary: document.getElementById('slider-boundary'),
     tipFeel: document.querySelector('[data-slider="feel"] .range-tip'),
@@ -67,6 +70,7 @@
   hydrateTaskFromLegacy();
   applyTheme(state.settings.theme, false);
   applyReducedMotion(state.settings.reducedMotion);
+  initNavToggle();
 
   setupSlider('feel');
   setupSlider('boundary');
@@ -126,6 +130,26 @@
       dom.motionToggle.setAttribute('aria-pressed', String(enabled));
     }
     saveState();
+  }
+
+  function initNavToggle() {
+    if (!dom.navToggle || !dom.navLinks) return;
+    const closeMenu = () => {
+      document.body.classList.remove('nav-open');
+      dom.navToggle.setAttribute('aria-expanded', 'false');
+    };
+    dom.navToggle.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      dom.navToggle.setAttribute('aria-expanded', String(open));
+    });
+    dom.navOverlay?.addEventListener('click', closeMenu);
+    dom.navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
   }
 
   function setupSlider(kind) {

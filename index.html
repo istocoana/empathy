@@ -34,7 +34,7 @@
   <header class="site__nav" id="top">
     <div class="container nav-bar">
       <a class="wordmark" aria-label="Empathy wordmark" href="#">Empathy Atlas</a>
-      <nav aria-label="Main" class="nav-links">
+      <nav aria-label="Main" class="nav-links" id="site-menu">
         <a href="#hero">Intro</a>
         <a href="#meaning">Meaning</a>
         <a href="#fieldwork">Fieldwork</a>
@@ -43,12 +43,21 @@
         <a href="#practice">Practice</a>
         <a href="#gallery">Gallery</a>
         <a href="#references">References</a>
+        <div class="nav-inline-actions">
+          <button class="secondary-btn theme-toggle" type="button" aria-label="Toggle theme">Light</button>
+          <a class="primary-btn" href="#practice">Practice</a>
+        </div>
       </nav>
       <div class="nav-actions">
         <button class="secondary-btn theme-toggle" type="button" id="theme-toggle" aria-label="Toggle theme">Light</button>
         <a class="primary-btn" href="#practice">Practice</a>
       </div>
+      <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Open main menu">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
     </div>
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
   </header>
 
   <main id="main" class="site__main container">
