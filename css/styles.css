@@ -1016,11 +1016,11 @@ button:focus-visible,
   gap: var(--s-8);
 }
 
-@media (max-width: 1026px) {
+@media (max-width: 1030px) {
   .simple-footer__top {
     grid-template-columns: 1fr;
     gap: var(--s-24);
-    padding: var(--s-24) 0;
+    padding: var(--s-24) var(--s-24); 
   }
   .simple-footer__bottom {
     grid-template-columns: 1fr;
